@@ -6,38 +6,36 @@ function love.load()
 
   sw, sh = love.graphics.getDimensions()
 
-  square_size = 50
+  square_size = 20
 end
 
 function love.update(dt)
   debug = 'Number of points: ' .. #points
-
-  for i, v in pairs(points) do
-    -- do stuff
-  end
 end
 
 function love.draw()
+  width = sw/square_size
   screen = {}
   for i = 0, sw - square_size, square_size do
     for j = 0, sh - square_size, square_size do
-      screen[j*square_size+i] = 0
+      x = math.floor(i/square_size)
+      y = math.floor(j/square_size)
+      screen[y*width+x] = 0
     end
   end
 
   for i, v in pairs(points) do
-    x = v.x/square_size
-    y = v.y/square_size
-    screen[y*square_size+x] = 255
-    print(y*square_size + x)
+    x = math.floor(v.x/square_size)
+    y = math.floor(v.y/square_size)
+    screen[y*width+x] = 255
   end
 
   for i = 0, sw - square_size, square_size do
     for j = 0, sh - square_size, square_size do
-      x = i/square_size
-      y = j/square_size
+      x = math.floor(i/square_size)
+      y = math.floor(j/square_size)
 
-      love.graphics.setColor(screen[0], 0, 0)
+      love.graphics.setColor(screen[y*width+x], screen[y*width+x], 0)
       love.graphics.rectangle('fill', i, j, square_size, square_size)
     end
   end
