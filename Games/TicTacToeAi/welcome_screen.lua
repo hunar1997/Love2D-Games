@@ -1,10 +1,16 @@
 local M = {}
---button = M.passed_values.button
 
---local enter = button.make_button()
+function is_it_working()
+  print("yes it is :D finally aaaaaaaaaaaaa")
+end
 
-function M:draw()
-  --enter:draw
+function M.load()
+  M.enter = M.button.make_button(100, 100, 100, 40, "slaw", {255, 0, 0}, {0, 255, 255}, is_it_working)
+end
+
+function M.draw()
+  M.enter:check()
+  M.enter:draw()
 end
 
 return M

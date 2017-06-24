@@ -2,14 +2,16 @@ love.window.setMode(480, 720)
 local welcome = require("welcome_screen")
 local game = require("game")
 
---local button = require("button")
+local button = require("button")
 
-local passed_values = 9
-welcome.passed_values = passed_values
+-- loading nececary stuff to the modules
+welcome.button = button
 
 local current_page = welcome
 
-function love.load(arg)
+function love.load()
+  welcome.load()
+
   font = love.graphics.newFont("Unikuweb.ttf", 15)
   love.graphics.setFont(font)
 end
