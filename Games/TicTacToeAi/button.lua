@@ -3,10 +3,10 @@ local M = {}
 function M.make_button(x_, y_, width_, height_, text_, color_button_, color_text_, callback_)
 
   local table = {
-    x = x_,
-    y = y_,
-    width = width_,
-    height = height_,
+    x = x_*sx - width_*sx/2,
+    y = y_*sy - height_*sy/2,
+    width = width_*sx,
+    height = height_*sy,
     text = text_,
     color = color_,
     color_button = color_button_,

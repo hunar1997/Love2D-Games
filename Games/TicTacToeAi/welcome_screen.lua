@@ -1,12 +1,10 @@
 local M = {}
 
-function is_it_working()
-  print("yes it is :D finally aaaaaaaaaaaaa")
+function M.is_it_working()
+  change_page(2)
 end
 
-function M.load()
-  M.enter = M.button.make_button(100, 100, 100, 40, "slaw", {255, 0, 0}, {0, 255, 255}, is_it_working)
-end
+M.enter = button.make_button(.5, .5, .8, .2, "Start game", {255, 0, 0}, {0, 255, 255}, M.is_it_working)
 
 function M.draw()
   M.enter:check()
