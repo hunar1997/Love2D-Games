@@ -1,11 +1,11 @@
 love.window.setMode(480, 720)
 
 -- global things goes here
-sx,sy = love.graphics.getDimensions()
+sw,sh = love.graphics.getDimensions()
 button = require("button")
 --------------------------
 
-local page = 1
+local page = 2
 
 function change_page(pn)
   page = pn
@@ -13,8 +13,6 @@ end
 
 local welcome = require("welcome_screen")
 local game = require("game")
-
-current_page = welcome
 
 function love.load()
   font = love.graphics.newFont("Unikuweb.ttf", 15)
