@@ -4,7 +4,7 @@ function create_matrix(rows, cols)
   for row=1, rows do
     matrix[row] = {}
     for col=1, cols do
-      matrix[row][col] = 0
+      matrix[row][col] = math.random(-5000, 5000)/1000  -- a number like 0.000
     end
   end
 
@@ -13,7 +13,7 @@ end
 
 function multiply_matrix(m1, m2)
   matrix = {}
-  
+
   for row=1, #m1 do
     matrix[row] = {}
     sum = 0
@@ -24,14 +24,6 @@ function multiply_matrix(m1, m2)
   end
 
   return matrix
-end
-
-function randomize_matrix(m)
-  for row=1, #matrix do
-    for col=1, #matrix[1] do
-      matrix[row][col] = math.random(-5000, 5000)/1000
-    end
-  end
 end
 
 function print_matrix(matrix)
