@@ -13,8 +13,8 @@ end
 
 function multiply_matrix(m1, m2)
   matrix = {}
-
-  for row=1, #m2 do
+  
+  for row=1, #m1 do
     matrix[row] = {}
     sum = 0
     for col=1, #m1[1] do
