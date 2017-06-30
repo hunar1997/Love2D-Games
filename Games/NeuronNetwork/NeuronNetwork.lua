@@ -1,5 +1,14 @@
 math.randomseed(7)
 require "Matrix"
+
+function activate(n)
+  return math.tanh(n)
+end
+
+function anti_activate(n)
+  return 1-n^2
+end
+
 function create_neuron_network(topology_)
   object = {}
 
@@ -17,15 +26,15 @@ function create_neuron_network(topology_)
     for step=1, #self.topology-1 do
       input_layer = self.layers[step]
       if input_layer[#input_layer][1]~=1 then input_layer[#input_layer+1] = {1} end
-      self.layers[step+1] = multiply_matrix(self.weights[step], input_layer)
-      print_matrix(self.layers[step])
-      print_matrix(self.weights[step])
+      self.layers[step+1] = multiply_matrix(self.weights[step], input_layer, activate)
+      print_matrix(self.layers[step]) -- debug
+      print_matrix(self.weights[step]) -- debug
     end
-    self:get_result()
+    self:get_result() -- debug
   end
 
   function object:get_result()
-    print_matrix(self.layers[#self.layers])
+    print_matrix(self.layers[#self.layers]) -- debug
     return self.layers[#self.layers]
   end
 

@@ -11,16 +11,16 @@ function create_matrix(rows, cols)
   return matrix
 end
 
-function multiply_matrix(m1, m2)
+function multiply_matrix(m1, m2, activation_function)
   matrix = {}
-  
+
   for row=1, #m1 do
     matrix[row] = {}
     sum = 0
     for col=1, #m1[1] do
       sum = sum + m1[row][col] * m2[col][1]
     end
-    matrix[row][1] = sum
+    matrix[row][1] = activation_function(sum)
   end
 
   return matrix
