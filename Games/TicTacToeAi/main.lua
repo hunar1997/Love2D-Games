@@ -5,7 +5,7 @@ sw,sh = love.graphics.getDimensions()
 button = require("button")
 --------------------------
 
-local page = 2
+local page = 1
 
 function change_page(pn)
   page = pn

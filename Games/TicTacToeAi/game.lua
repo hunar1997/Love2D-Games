@@ -18,6 +18,9 @@ function M.draw()
   love.graphics.line(bx, by+size, bx+size, by+size)
   love.graphics.line(bx, by, bx, by+size)
   love.graphics.line(bx+size, by, bx+size, by+size)
+
+  -- title
+  love.graphics.print("Turn: ",sw*.3, sh*.1)
 end
 
 return M
